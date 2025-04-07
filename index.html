@@ -4,109 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مجمع الإمام البخاري - التربوي</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- استيراد خط "Cairo" من جوجل فونتس -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <!-- ربط ملف التنسيق الخارجي -->
+  <link rel="stylesheet" type="text/css" href="style.html">
 </head>
 <body>
-  <!-- الهيدر والشعار -->
+  <!-- تأثير دوران متوهج كخلفية -->
+  <div class="swirl"></div>
+  
   <header>
     <div class="logo">
-      <h1>مجمع الإمام البخاري</h1>
-      <p>- التربوي -</p>
+      <h1>مجمع الإمام البخاري - التربوي</h1>
     </div>
     <nav>
-      <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#grades">الدرجات</a></li><a href="grades.html">الدرجات</a>
-        <li><a href="#registration">التسجيل</a></li>
-        <li><a href="#programs">البرامج</a></li>
-        <li><a href="#portal">البوابة الإلكترونية</a></li>
-        <li><a href="#contact">التواصل</a></li>
-      </ul>
+      <!-- أزرار الانتقال للصفحات الخاصة بكل قسم -->
+      <button onclick="location.href='grades.html'">الدرجات</button>
+      <button onclick="location.href='registration.html'">التسجيل</button>
+      <button onclick="location.href='programs.html'">البرامج</button>
+      <button onclick="location.href='portal.html'">البوابة الإلكترونية</button>
     </nav>
   </header>
-
-  <!-- الصفحة الرئيسية -->
-  <section id="home" class="section animated">
-    <div class="container">
-      <h2>مرحبا بكم في موقعنا التعليمي</h2>
-      <p>نحن نسعى لتقديم أفضل الخدمات التعليمية لأبنائنا الطلاب.</p>
-    </div>
+  
+  <section class="content">
+    <h2 class="welcome">أهلاً وسهلاً بكم في موقعنا التعليمي</h2>
+    <p>يسرنا أن نرحب بكم في موقع مجمع الإمام البخاري - التربوي، حيث نقدم كافة المعلومات والمواد التعليمية التي تساهم في تطوير العملية التعليمية.</p>
+    <p class="location">موقع المدرسة: أب - الرضمة - يحير - ذي شعبة</p>
   </section>
 
-  <!-- قسم الدرجات -->
-  <section id="grades" class="section animated">
-    <div class="container">
-      <h2>قسم الدرجات</h2>
-      <p>يمكنكم متابعة درجات الطلاب والاطلاع على النتائج بطريقة سهلة ومبسطة.</p>
-    </div>
-  </section>
-
-  <!-- قسم التسجيل -->
-  <section id="registration" class="section animated">
-    <div class="container">
-      <h2>قسم التسجيل</h2>
-      <p>سجلوا الآن لاستلام التعليم المتميز من مجمع الإمام البخاري - التربوي.</p>
-      <button class="btn">التسجيل الآن</button>
-    </div>
-  </section>
-
-  <!-- قسم البرامج -->
-  <section id="programs" class="section animated">
-    <div class="container">
-      <h2>قسم البرامج</h2>
-      <p>اطلع على البرامج التعليمية والأنشطة المتنوعة التي نقدمها.</p>
-    </div>
-  </section>
-
-  <!-- قسم البوابة الإلكترونية -->
-  <section id="portal" class="section animated">
-    <div class="container">
-      <h2>البوابة الإلكترونية</h2>
-      <p>دخول سريع ومباشر لجميع خدماتنا الإلكترونية.</p>
-      <button class="btn">الدخول إلى البوابة</button>
-    </div>
-  </section>
-
-  <!-- قسم التواصل -->
-  <section id="contact" class="section animated">
-    <div class="container">
-      <h2>قسم التواصل</h2>
-      <p>للتواصل معنا عبر الواتساب:</p>
-      <a class="whatsapp" href="https://wa.me/780506797" target="_blank">780506797</a>
-    </div>
-  </section>
-
-  <!-- الفوتر -->
   <footer>
-    <p>&copy; 2025 مجمع الإمام البخاري - التربوي. جميع الحقوق محفوظة.</p>
+    <div class="contact">
+      <h3>تواصل معنا</h3>
+      <p>واتساب: <a href="https://wa.me/780506797" target="_blank">780506797</a></p>
+    </div>
   </footer>
-
-  <!-- سكربتات للحركات البسيطة -->
-  <script>
-    // مثال على حركة بسيطة عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.animated');
-      sections.forEach(section => {
-        section.classList.add('fade-in');
-      });
-    });
-  </script>
 </body>
-</html>
-<!DOCTYPE html>
-<html>
+</html><!DOCTYPE html>
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>موقعي التعليمي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجمع الإمام البخاري - التربوي</title>
+  <!-- استيراد خط "Cairo" من جوجل فونتس -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <!-- ربط ملف التنسيق الخارجي -->
+  <link rel="stylesheet" type="text/css" href="style.html">
 </head>
 <body>
-  <h1>مرحباً بك في مجمع الإمام البخاري</h1>
+  <!-- تأثير دوران متوهج كخلفية -->
+  <div class="swirl"></div>
+  
+  <header>
+    <div class="logo">
+      <h1>مجمع الإمام البخاري - التربوي</h1>
+    </div>
+    <nav>
+      <!-- أزرار الانتقال للصفحات الخاصة بكل قسم -->
+      <button onclick="location.href='grades.html'">الدرجات</button>
+      <button onclick="location.href='registration.html'">التسجيل</button>
+      <button onclick="location.href='programs.html'">البرامج</button>
+      <button onclick="location.href='portal.html'">البوابة الإلكترونية</button>
+    </nav>
+  </header>
+  
+  <section class="content">
+    <h2 class="welcome">أهلاً وسهلاً بكم في موقعنا التعليمي</h2>
+    <p>يسرنا أن نرحب بكم في موقع مجمع الإمام البخاري - التربوي، حيث نقدم كافة المعلومات والمواد التعليمية التي تساهم في تطوير العملية التعليمية.</p>
+    <p class="location">موقع المدرسة: أب - الرضمة - يحير - ذي شعبة</p>
+  </section>
 
-  <ul>
-    <li><a href="grades.html">عرض الدرجات</a></li>
-    <li><a href="register.html">التسجيل</a></li>
-    <li><a href="portal.html">البوابة الإلكترونية</a></li>
-    <li><a href="contact.html">استفسارات الطلاب</a></li>
-  </ul>
+  <footer>
+    <div class="contact">
+      <h3>تواصل معنا</h3>
+      <p>واتساب: <a href="https://wa.me/780506797" target="_blank">780506797</a></p>
+    </div>
+  </footer>
 </body>
 </html>
