@@ -1,132 +1,139 @@
-/* التنسيق العام */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-body {
-  background-color: #1a001a;
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* الهيدر والشعار */
-header {
-  background-color: #330033;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo h1 {
-  font-size: 2.5em;
-  letter-spacing: 2px;
-}
-
-.logo p {
-  font-size: 1.2em;
-  margin-top: -10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #d1a3d1;
-}
-
-/* أقسام الموقع */
-.section {
-  padding: 50px 20px;
-  text-align: center;
-  border-bottom: 1px solid #4d004d;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* الأزرار */
-.btn {
-  background-color: #660066;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  font-size: 1em;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #8a008a;
-}
-
-/* قسم الواتساب */
-.whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp:hover {
-  background-color: #1da851;
-}
-
-/* الفوتر */
-footer {
-  background-color: #330033;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
-}
-
-/* الحركات (أنميشن) */
-.animated {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* إضافة تأثير hover على الشعار */
-.logo h1:hover {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Styles</title>
+  <style>
+    /* إعادة تعيين التنسيقات الأساسية وتطبيق خط "Cairo" */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      font-family: 'Cairo', sans-serif;
+      background-color: #000;
+      color: #fff;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+    /* تأثير دوران متوهج كخلفية */
+    .swirl {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(128,0,128,0.4) 0%, rgba(128,0,128,0) 70%);
+      z-index: -1;
+      animation: swirl 15s linear infinite;
+    }
+    @keyframes swirl {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    header {
+      background: linear-gradient(45deg, #4b0082, #000); /* تدرج أرجواني مائل إلى الأسود */
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 10px #4b0082;
+    }
+    .logo h1 {
+      font-size: 2.5em;
+      animation: glow 1.5s infinite alternate;
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav button {
+      background: linear-gradient(45deg, #4b0082, #000);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 15px; /* حواف مستديرة */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    nav button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #4b0082;
+    }
+    nav button:active {
+      transform: scale(0.95);
+      box-shadow: inset 0 0 10px #4b0082;
+    }
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+    /* تأثير حركة التلاشي للترحيب */
+    .welcome {
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    /* تأثير حركة الانزلاق لموقع المدرسة */
+    .location {
+      font-size: 1.2em;
+      margin-top: 20px;
+      animation: slideIn 2s ease-in-out;
+    }
+    footer {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      border-top: 1px solid #4b0082;
+    }
+    footer a {
+      color: #4b0082;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #800080;
+    }
+    /* تأثير التوهج على الشعار */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #4b0082, 0 0 20px #4b0082, 0 0 30px #4b0082;
+      }
+      to {
+        text-shadow: 0 0 20px #4b0082, 0 0 30px #4b0082, 0 0 40px #4b0082;
+      }
+    }
+    /* تأثير التلاشي */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* تأثير الانزلاق */
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- هذا الملف لتعريف أنماط CSS الخاصة بالموقع -->
+</body>
+</html>
