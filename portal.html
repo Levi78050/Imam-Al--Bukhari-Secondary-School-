@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الطالب الإلكترونية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            margin: auto;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #555;
+            color: white;
+        }
+        button {
+            background-color: #6a1b9a;
+            border: none;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #9c4dcc;
+        }
+        h2, h3 {
+            color: #fff;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section p, .section table {
+            text-align: left;
+        }
+        .back-button {
+            background-color: #9c4dcc;
+            padding: 12px;
+            margin-top: 20px;
+            width: 50%;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #6a1b9a;
+        }
+        .note-area {
+            margin-top: 20px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .note-area input {
+            width: 70%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الصفحة الرئيسية للتسجيل -->
+    <div id="login-form" class="container">
+        <h2>تسجيل الدخول إلى البوابة الإلكترونية</h2>
+        <form id="loginForm">
+            <input type="text" id="psn" placeholder="أدخل PSN" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;">PSN غير صحيح. حاول مرة أخرى.</p>
+    </div>
+<!-- زر العودة إلى الصفحة الرئيسية -->
+<div style="text-align: center; margin-top: 30px;">
+  <a href="index.html" style="text-decoration: none;">
+    <button style="background-color: #7b2cbf; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">
+      العودة إلى الصفحة الرئيسية
+    </button>
+  </a>
+</div>
+    <!-- بوابة الطالب الإلكترونية -->
+    <div id="portal" class="container" style="display: none;">
+        <h2>بوابة الطالب الإلكترونية</h2>
+
+        <!-- أزرار للتنقل إلى الأقسام المختلفة -->
+        <div class="section">
+            <button onclick="showSection('student-info')">معلومات عن نفسك</button>
+        </div>
+        <div class="section">
+            <button onclick="showSection('announcements')">الإعلانات الخاصة بك</button>
+        </div>
+        <div class="section">
+            <button onclick="showSection('progress')">تقدمك التعليمي</button>
+        </div>
+        <div class="section">
+            <button onclick="showSection('evaluation')">تقييمك في المدرسة</button>
+        </div>
+
+        <div class="section">
+            <button class="back-button" onclick="window.location.reload()">العودة إلى الصفحة الرئيسية</button>
+        </div>
+        
+        <!-- أقسام المحتوى المخبأ عند النقر على الأزرار -->
+        <div id="student-info" class="section" style="display: none;">
+            <h3>معلومات عن نفسك</h3>
+            <p>الاسم: أحمد علي</p>
+            <p>الصف: الأول الثانوي</p>
+        </div>
+
+        <div id="announcements" class="section" style="display: none;">
+            <h3>الإعلانات الخاصة بك</h3>
+            <p>إعلان: سيتم عقد اختبار منتصف الفصل يوم الأحد القادم.</p>
+        </div>
+
+        <div id="progress" class="section" style="display: none;">
+            <h3>تقدمك التعليمي</h3>
+            <table>
+                <tr>
+                    <th>المادة</th>
+                    <th>الدرجة</th>
+                </tr>
+                <tr>
+                    <td>الرياضيات</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>اللغة العربية</td>
+                    <td>85</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="evaluation" class="section" style="display: none;">
+            <h3>تقييمك في المدرسة</h3>
+            <p>التقييم العام: جيد جداً</p>
+        </div>
+    </div>
+
+    <script>
+        // بيانات الطلاب الافتراضية
+        const validPSNs = {
+            "12345678": { name: "أحمد علي", class: "الثاني الثانوي" },
+            "23456789": { name: "فاطمة محمد", class: "الأول الثانوي" }
+        };
+
+        // نموذج تسجيل الدخول
+        const loginForm = document.getElementById("loginForm");
+        const psnInput = document.getElementById("psn");
+        const errorMessage = document.getElementById("error-message");
+        const loginFormDiv = document.getElementById("login-form");
+        const portalDiv = document.getElementById("portal");
+
+        // عند تقديم النموذج
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const enteredPSN = psnInput.value;
+
+            // التحقق من الـ PSN
+            if (validPSNs[enteredPSN]) {
+                // إخفاء نموذج التسجيل وفتح البوابة الإلكترونية
+                loginFormDiv.style.display = "none";
+                portalDiv.style.display = "block";
+            } else {
+                errorMessage.style.display = "block";
+            }
+        });
+
+        // إظهار القسم المحدد عند الضغط على الأزرار
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // عرض القسم المحدد
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

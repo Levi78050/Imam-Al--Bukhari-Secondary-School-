@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاستعلام عن الدرجات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2d2d2d;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            background-color: #3e3e3e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            background-color: #444;
+            border: 1px solid #666;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .input-group input[type="submit"] {
+            background-color: #6a1b9a;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .input-group input[type="submit"]:hover {
+            background-color: #9c4dcc;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .error {
+            background-color: #f44336;
+        }
+        .success {
+            background-color: #4caf50;
+        }
+        #return-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #6a1b9a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        #return-button:hover {
+            background-color: #9c4dcc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>الاستعلام عن الدرجات</h2>
+        <form onsubmit="return validateForm()" method="POST" action="#">
+            <div class="input-group">
+                <label for="studentID">رقم الجلوس</label>
+                <input type="text" id="studentID" name="studentID" placeholder="أدخل رقم الجلوس" required>
+            </div>
+            <div class="input-group">
+                <label for="password">الرقم السري</label>
+                <input type="password" id="password" name="password" placeholder="أدخل الرقم السري" required>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="استعلام الدرجات">
+            </div>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <a href="index.html" id="return-button">العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        // دالة التحقق من صحة البيانات المدخلة
+        function validateForm() {
+            var studentID = document.getElementById("studentID").value;
+            var password = document.getElementById("password").value;
+
+            // التحقق من أن الحقول غير فارغة
+            if (studentID === "" || password === "") {
+                document.getElementById("message").innerHTML = "الرجاء إدخال جميع البيانات المطلوبة.";
+                document.getElementById("message").classList.add("error");
+                return false;
+            }
+
+            // هنا أضفنا قاعدة البيانات مع رقم الجلوس والرقم السري المختلف لكل طالب
+            var validData = {
+                "12345": { name: "أحمد محمد", grade: "90", class: "الأول", password: "54321" },
+                "67890": { name: "سارة علي", grade: "85", class: "الثاني", password: "09876" },
+                "11223": { name: "محمد عبد الله", grade: "88", class: "الأول", password: "33221" },
+                "44556": { name: "أسماء خالد", grade: "95", class: "الثاني", password: "66554" },
+                "78901": { name: "يوسف مصطفى", grade: "80", class: "الأول", password: "10987" },
+                "22334": { name: "لينا سامي", grade: "92", class: "الأول", password: "44332" }
+            };
+
+            // التحقق من أن رقم الجلوس والرقم السري صحيحين
+            if (validData[studentID] && validData[studentID].password === password) {
+                document.getElementById("message").innerHTML = "اسم الطالب: " + validData[studentID].name + "<br>الصف: " + validData[studentID].class + "<br>الدرجة: " + validData[studentID].grade;
+                document.getElementById("message").classList.add("success");
+            } else {
+                document.getElementById("message").innerHTML = "الرقم السري أو رقم الجلوس غير صحيح.";
+                document.getElementById("message").classList.add("error");
+            }
+            return false;  // لمنع إرسال النموذج
+        }
+    </script>
+</body>
+</html>
